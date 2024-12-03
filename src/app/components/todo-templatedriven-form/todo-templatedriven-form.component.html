@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Ajouter une nouvelle tâche</h2>
+  
+    <div class="card p-4 shadow-sm">
+      <form #todoForm="ngForm" (ngSubmit)="addTodo()">
+        
+        <!-- Titre -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Titre</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            [(ngModel)]="newTodo.title"
+            required
+            placeholder="Entrez le titre de la tâche"
+          />
+          <div *ngIf="todoForm.submitted && !todoForm.controls['title']?.valid" class="text-danger mt-2">
+            Le titre est requis.
+          </div>
+        </div>
+    
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            [(ngModel)]="newTodo.description"
+            required
+            placeholder="Entrez une description pour la tâche"
+          ></textarea>
+          <div *ngIf="todoForm.submitted && !todoForm.controls['description']?.valid" class="text-danger mt-2">
+            La description est requise.
+          </div>
+        </div>
+    
+        <!-- Date -->
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            class="form-control"
+            [(ngModel)]="newTodo.date"
+            required
+          />
+          <div *ngIf="todoForm.submitted && !todoForm.controls['date']?.valid" class="text-danger mt-2">
+            La date est requise.
+          </div>
+        </div>
+    
+        <!-- Boutons -->
+        <div class="d-flex justify-content-between mt-4">
+          <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">
+            <i class="bi bi-check-circle"></i> Ajouter
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="router.navigate(['/'])">
+            <i class="bi bi-x-circle"></i> Annuler
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

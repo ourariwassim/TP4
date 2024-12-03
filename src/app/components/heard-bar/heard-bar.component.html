@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" >Todo List</a>
+    <button class="btn btn-dark" routerLink="/">Todos</button>
+    <button *ngIf="!isLoggedIn"  class="btn btn-dark" routerLink="/sign-in">Sign In</button>
+    <button *ngIf="isLoggedIn" class="btn btn-dark" routerLink="/sign-in" (click)="signOut()">Sign Out</button>
+    <button class="btn btn-dark" routerLink="/new">New</button>
+  </nav>
+  

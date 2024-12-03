@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Mettre à jour la tâche</h2>
+
+  <div class="card p-4 shadow-sm">
+    <!-- Show loading message until todoToEdit is available -->
+    <div *ngIf="loading">Chargement...</div>
+
+    <form *ngIf="!loading && todoToEdit" (ngSubmit)="updateTodo()">
+      <div class="form-group mb-3">
+        <label for="title" class="form-label">Titre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="todoToEdit.title"
+          name="title"
+          required
+          placeholder="Entrez le titre de la tâche"
+        />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          [(ngModel)]="todoToEdit.description"
+          name="description"
+          required
+          placeholder="Entrez une description pour la tâche"
+        ></textarea>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          [(ngModel)]="todoToEdit.date"
+          name="date"
+          required
+        />
+      </div>
+
+      <!-- Done Checkbox -->
+      <div class="form-group mb-3">
+        <label for="done" class="form-label">Terminé</label>
+        <input
+          type="checkbox"
+          id="done"
+          [(ngModel)]="todoToEdit.done"
+          name="done"
+        />
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!todoToEdit?.title || !todoToEdit?.description || !todoToEdit?.date"
+        >
+          Mettre à jour
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="router.navigate(['/'])"
+        >
+          Annuler
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

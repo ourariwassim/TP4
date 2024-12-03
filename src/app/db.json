@@ -1,0 +1,26 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "wassim",
+      "description": "wassim",
+      "date": "2024-12-03",
+      "done": false
+    },
+    {
+      "id": 1,
+      "title": "wassoumti",
+      "description": "wassoumti",
+      "date": "2024-12-03",
+      "done": false
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "login": "wassim@gmail.com",
+      "password": "wassim",
+      "token": "aaaaaaaa"
+    }
+  ]
+}
